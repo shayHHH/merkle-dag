@@ -6,8 +6,8 @@ const (
 )
 
 type Node interface {
-	Size() uint64 //返回节点大小
-	Type() int    //返回节点类型
+	Size() uint64
+	Type() int
 }
 
 type File interface {

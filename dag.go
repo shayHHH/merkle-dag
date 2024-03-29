@@ -2,8 +2,19 @@ package merkledag
 
 import "hash"
 
+type Link struct {
+	Name string
+	Hash []byte
+	Size int
+}
+
+type Object struct {
+	Links []Link
+	Data  []byte
+}
+
 func Add(store KVStore, node Node, h hash.Hash) []byte {
-	//将Node中的数据保存在KVStore中，并计算出Merkle Root
+	// 将Node中的数据保存在KVStore中，并计算出Merkle Root
 	// 根据节点类型不同进行处理
 	switch node.Type() {
 	case FILE:
